@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CO2 Emission</title>
+    <meta charset="utf-8">
+ 
+    <style>
+ 
+   .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+} 
+    </style>
+</head>
+<body><p>
+Distance  : <input type="text" id="dist" size="8" maxlength="80" />  <button id="button"onclick="calculate()">calculate</button> </p>
+  Vehicle   : <select id="vehicle">
+	<option value="0">Select Vehicle
+    <option value="1">BUS
+    <option value="2">CAR
+    <option value="3">MOTORCYCLE
+	<option value="4">TRAIN
+	</select>
+
+<p>
+<p id="emissions"></p> <p> <p id="veh"></p> 
+</p>
+<script>
+	var option = 0;
+	var emission = 0;
+	document.getElementById("emissions").innerHTML = "CO2 Emission: "+ emission;
+	
+	function display(value){
+		document.getElementById("emissions").innerHTML = "CO2 Emission: " + emission + "g";
+	}
+	
+    function calculate() {
+	option = document.getElementById("vehicle").value;
+	var km = document.getElementById("dist").value;
+	
+	if(option == "1"){
+		emission = km * 20;
+	}
+	else if(option == "2"){
+		emission = km * 180;
+	}
+	else if(option == "3"){
+		emission = km * 80;
+	}
+	else if(option == "4"){
+		emission = km * 40;
+	}
+	else{
+		alert('You have to choose a vehicle');
+	}
+	display(emission);
+	option = 1;
+	
+	}
+	
+	
+
+ 
+</script>
+
+</body>
+</html>

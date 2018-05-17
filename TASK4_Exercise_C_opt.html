@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CO2 Emission</title>
+    <meta charset="utf-8">
+ 
+    <style>
+ 
+   .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+} 
+    </style>
+</head>
+<body><p>
+Type the distance</p>
+<p>
+Distance  : <input type="text" id="dist" size="8" maxlength="80" onKeyup = "javascript: calculate()"/>km 
+<p>
+<p id="emissions1"></p> <p> <p id="veh1"></p> 
+<p id="emissions2"></p> <p> <p id="veh2"></p>
+<p id="emissions3"></p> <p> <p id="veh3"></p>
+<p id="emissions4"></p> <p> <p id="veh4"></p>
+</p>
+<script>
+	var option = 0;
+	var emission1 = 0;
+	var emission2 = 0;
+	var emission3 = 0;
+	var emission4 = 0;
+	document.getElementById("emissions").innerHTML = "CO2 Emission: "+ emission;
+    
+	function calculate() {
+	var km = document.getElementById("dist").value;
+	
+
+	emission1 = km * 20;
+	emission2 = km * 180;
+	emission3 = km * 80;
+	emission4 = km * 40;
+
+	document.getElementById("emissions1").innerHTML = "CO2 Emission Bus: " + emission1 + "g";
+	document.getElementById("emissions2").innerHTML = "CO2 Emission Car: " + emission2 + "g";
+	document.getElementById("emissions3").innerHTML = "CO2 Emission Motorcycle: " + emission3 + "g";
+	document.getElementById("emissions4").innerHTML = "CO2 Emission Train: " + emission4 + "g";
+	}
+	
+	document.onkeydown = onKey;
+function onKey(e) { if (e == null) {
+        e = window.event;
+    }
+	switch (e.which || e.charCode || e.keyCode) { 
+		default:
+		// space
+		calculate();
+	} 
+}
+</script>
+
+</body>
+</html>
